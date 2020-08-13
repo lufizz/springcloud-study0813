@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lt.gzj.sp.service.order.mappers.MemberAccInfoMapper">
+    <resultMap id="BaseResultMap" type="com.lt.gzj.sp.service.order.dto.MemberAccInfo">
+        <id column="ID" property="id" jdbcType="DECIMAL"/>
+        <result column="MEMBER_CODE" property="memberCode" jdbcType="DECIMAL"/>
+        <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <collection property="accList" ofType="com.lt.gzj.sp.service.order.dto.AccInfo">
+            <result column="ACCT_ID" property="accId" jdbcType="VARCHAR"></result>
+            <result column="ACCT_TYPE" property="accType" jdbcType="VARCHAR"></result>
+        </collection>
+
+    </resultMap>
+    <select id="queryByMember" resultMap="BaseResultMap" parameterType="string">
+      select TMR."ID",TMR.MEMBER_CODE,tmr.LOGIN_NAME,TMR.NAME,TA.ACCT_ID,TA.ACCT_TYPE from T_MEMBER_REALNAME tmr
+	  LEFT JOIN T_ACCT ta ON tmr.MEMBER_CODE = ta.MEMBER_CODE
+      where TMR.MEMBER_CODE = #{memberCode}
+    </select>
+</mapper>
