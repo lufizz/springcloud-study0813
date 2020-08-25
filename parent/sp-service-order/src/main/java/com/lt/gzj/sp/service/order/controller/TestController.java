@@ -35,7 +35,7 @@ public class TestController {
     @GetMapping("queryMember/{memberCode}")
     public Object queryMember(@PathVariable("memberCode")String memberCode){
         List<MemberAccInfo> list =  memberAccInfoMapper.queryByMember(memberCode);
-        ExecutorService executorService = Executors.newFixedThreadPool()
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
         return list;
     }
 

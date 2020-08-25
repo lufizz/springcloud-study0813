@@ -54,9 +54,13 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.weconex.njcc</groupId>
-            <artifactId>njcc-yunCode-client</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
         </dependency>
+        <!--        <dependency>-->
+<!--            <groupId>com.weconex.njcc</groupId>-->
+<!--            <artifactId>njcc-yunCode-client</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
 
